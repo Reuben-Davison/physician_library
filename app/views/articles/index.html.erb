@@ -1,0 +1,15 @@
+<h1 style="text-align:center;">Articles</h1>
+
+<% @articles.each do |article| %>
+  <div class="ui raised very padded text container segment">
+    <h2 class="ui header"><%= article.title %></h2>
+    <p><%= article.body %><p>
+    <a class="positive"><%= link_to 'Show', article %></a>
+    <a class="warning"><%= link_to 'Edit', edit_article_path(article) %></a>
+    <a class="negative"><%= link_to semantic_icon('trash') + 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+  </div>
+  <% end  %>
+
+<br>
+
+<%= link_to 'New Article', new_article_path %>
